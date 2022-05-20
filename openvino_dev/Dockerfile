@@ -8,7 +8,8 @@ USER root
 RUN apt-get update -yq && apt-get install -yq curl build-essential python3 python3-pip python3-dev libpython3-dev cmake curl && \
     curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && apt install -y nodejs && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    ln -s /usr/bin/python3 /usr/bin/python
+    ln -s /usr/bin/python3 /usr/bin/python && \
+    pip install wheel
 
 # setup venv and python packages
 USER openvino
