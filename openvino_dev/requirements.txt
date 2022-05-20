@@ -1,0 +1,15 @@
+jupyter-dash
+jupyterlab
+numpy
+pandas
+seaborn
+scipy
+matplotlib
+plotly
+torch
+torchvision
+torchaudio
+torchsummary
+openvino
+openvino-dev
+ipywidgets
