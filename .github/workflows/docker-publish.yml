@@ -27,7 +27,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: openvino_dev
+      IMAGE_NAME: ${{ github.repository }}/openvino_dev:latest
     permissions:
       contents: read
       packages: write
@@ -78,8 +78,8 @@ jobs:
         with:
           context: ./openvino_dev
           push: ${{ github.event_name != 'pull_request' }}
-          #tags: ${{ steps.meta.outputs.tags }}
-          tags: ${{ env.REGISTRY }}/lildatamonster/docker/openvino_dev:latest
+          tags: ${{ steps.meta.outputs.tags }}
+#           tags: ${{ env.REGISTRY }}/lildatamonster/docker/openvino_dev:latest
           labels: ${{ steps.meta.outputs.labels }}
 
       # Sign the resulting Docker image digest except on PRs.
