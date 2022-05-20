@@ -8,8 +8,7 @@ USER root
 RUN apt-get update -yq && apt-get install -yq curl build-essential python3 python3-pip python3-dev libpython3-dev cmake curl && \
     curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && apt install -y nodejs && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    ln -s /usr/bin/python3 /usr/bin/python && \
-    pip install wheel
+    ln -s /usr/bin/python3 /usr/bin/python
 
 # setup venv and python packages
 USER openvino
@@ -17,6 +16,7 @@ WORKDIR /home/openvino
 COPY ./requirements.txt /
 RUN python -m venv openvino_env && \
     source /home/openvino/openvino_env/bin/activate && \
+    pip install wheel && \
     pip install -r /requirements.txt --extra-index-url https://download.pytorch.org/whl/cu113 && \
     jupyter lab build
 
