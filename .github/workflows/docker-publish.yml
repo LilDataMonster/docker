@@ -9,11 +9,11 @@ on:
   schedule:
     - cron: '42 20 * * *'
   push:
-    branches: [ master ]
+    branches: [ latest ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ master ]
+    branches: [ latest ]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -27,7 +27,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: ${{ github.repository }}/openvino_dev:latest
+      IMAGE_NAME: ${{ github.repository }}/openvino_dev
     permissions:
       contents: read
       packages: write
