@@ -22,7 +22,7 @@ RUN apt update -y && apt upgrade -y && \
                    automake libtool autoconf libcairo2-dev libpango1.0-dev libglib2.0-dev \
                    libglew-dev libglfw3-dev libgtest-dev \
                    python3-pip python3-distutils \
-                   cmake libzmq5 libzmqpp-dev \
+                   cmake libzmq5 libzmqpp-dev && \
                    python3 -m pip install pip --upgrade && \
                    python3 -m pip install pybind11[global] numpy pytest cython google protobuf && \
     curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && apt install -y nodejs && \
