@@ -1,4 +1,4 @@
-name: Docker
+name: arm64/opencv
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -54,7 +54,7 @@ jobs:
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
-        with: arm64
+        with: 'arm64'
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
