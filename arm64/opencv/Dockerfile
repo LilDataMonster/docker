@@ -53,7 +53,7 @@ RUN wget -O opencv.tar.gz https://github.com/opencv/opencv/archive/${OPENCV_VERS
           -D WITH_GSTREAMER=ON \
           -D BUILD_EXAMPLES=OFF .. && \
     make -j ${COMPILE_THREADS} && make install && \
-    cp opencv-${OPENCV_VERSION}/build/lib/python3/cv2.cpython-*-linux-gnu.so /usr/lib/python3/dist-packages/ && \
+    cp lib/python3/cv2.cpython-*-linux-gnu.so /usr/lib/python3/dist-packages/ && \
     ln -s /usr/bin/python3 /usr/bin/python
 
 ENV OpenCV_DIR=/opt/opencv-${OPENCV_VERSION}
