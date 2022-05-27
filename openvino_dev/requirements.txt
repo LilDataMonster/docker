@@ -13,3 +13,10 @@ torchsummary
 openvino
 openvino-dev
 ipywidgets
+
+# docs
+sphinx
+sphinx-book-theme
+myst-nb
+nbclient<0.6,>=0.2
+jupytext
