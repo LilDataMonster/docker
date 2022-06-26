@@ -16,8 +16,8 @@ WORKDIR /home/openvino
 COPY ./requirements.txt /
 RUN python -m venv openvino_env && \
     source /home/openvino/openvino_env/bin/activate && \
-    pip install wheel && \
-    pip install -r /requirements.txt --extra-index-url https://download.pytorch.org/whl/cu113 && \
+    pip install --no-cache-dir setuptools wheel && \
+    pip install --no-cache-dir -r /requirements.txt --extra-index-url https://download.pytorch.org/whl/cu113 && \
     jupyter lab build
 
 # setup entrypoint
