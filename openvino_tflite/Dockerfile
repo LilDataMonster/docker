@@ -14,7 +14,7 @@ WORKDIR /home/openvino
 COPY ./requirements.txt /
 RUN python -m venv openvino_env && \
     source /home/openvino/openvino_env/bin/activate && \
-    pip install --no-cache-dir mendel-development-tool && \
+    pip install --no-cache-dir mendel-development-tool pycoral && \
     pip install --no-cache-dir -r /requirements.txt && \
     rm /requirements.txt && echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bash_profile && \
     jupyter lab build
