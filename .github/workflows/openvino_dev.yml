@@ -96,6 +96,7 @@ jobs:
 
   tensorflow_lite:
     runs-on: ubuntu-latest
+    needs: openvino_dev
     env:
       IMAGE_NAME: ${{ github.repository }}/openvino_dev/tensorflow_lite
     permissions:
