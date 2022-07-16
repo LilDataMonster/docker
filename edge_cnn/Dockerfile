@@ -16,7 +16,8 @@ WORKDIR /home/tf
 COPY ./requirements.txt /
 RUN python -m venv tf_env && \
     source /home/tf/tf_env/bin/activate && \
-    pip install --no-cache-dir -r /requirements.txt --extra-index-url https://download.pytorch.org/whl/cu116
+    pip install --no-cache-dir -r /requirements.txt --extra-index-url https://download.pytorch.org/whl/cu116 && \
+    jupyter lab build
 
 # setup entrypoint
 COPY ./entrypoint.sh /
