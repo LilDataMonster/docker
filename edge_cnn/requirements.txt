@@ -16,9 +16,11 @@ scipy
 scoring
 seaborn
 skl2onnx
+statsmodels
 tf2onnx
 tflite-runtime
 torch
 torchaudio
 torchsummary
 torchvision
+tqdm
