@@ -1,4 +1,6 @@
-FROM tensorflow/tensorflow:latest-gpu-jupyter
+FROM nvcr.io/nvidia/tensorflow:22.06-tf2-py3
+
+ARG DEBIAN_FRONTEND=noninteractive
 
 USER root
 RUN apt-get update -yq && apt-get install -yq build-essential python3 python3-venv python3-pip python3-dev libpython3-dev cmake curl && \
@@ -6,8 +8,7 @@ RUN apt-get update -yq && apt-get install -yq build-essential python3 python3-ve
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
     curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
     apt-get update -yq && apt-get install -yq edgetpu-compiler nodejs && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    ln -s /usr/bin/python3 /usr/bin/python
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # setup venv and python packages
 RUN useradd -rm -p "$(openssl passwd -6 lildatamonster)" -d /home/tf -s /bin/bash -g root -G sudo -u 1000 tf
