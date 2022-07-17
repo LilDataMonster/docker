@@ -6,6 +6,7 @@ jupyterlab
 matplotlib
 mendel-development-tool
 numpy
+onnx_tf
 onnxruntime-gpu
 opencv-contrib-python-headless
 pandas
