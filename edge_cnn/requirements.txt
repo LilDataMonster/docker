@@ -1,5 +1,7 @@
 dash
+flatbuffers<2,>=1.12
 fiftyone
+h11<0.13,>=0.11
 ipywidgets
 jupyter-dash
 jupyterlab
