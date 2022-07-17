@@ -19,6 +19,8 @@ scoring
 seaborn
 skl2onnx
 statsmodels
+tensorflow
+tensorflow-gpu
 tf2onnx
 tflite-runtime
 torch
