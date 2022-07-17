@@ -21,6 +21,7 @@ skl2onnx
 statsmodels
 tensorflow
 tensorflow-gpu
+tensorflow_probability
 tf2onnx
 tflite-runtime
 torch
