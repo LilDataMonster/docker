@@ -7,11 +7,14 @@ RUN apt-get update -yq && apt-get install -yq build-essential python3 python3-ve
     echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | tee /etc/apt/sources.list.d/coral-edgetpu.list && \
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
     curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
-    apt-get update -yq && apt-get install -yq edgetpu-compiler nodejs && \
+    apt-get update -yq && apt-get install -yq edgetpu-compiler fastboot udev nodejs && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+RUN sh -c "echo 'SUBSYSTEM==\"usb\", ATTR{idVendor}==\"0525\", MODE=\"0664\", GROUP=\"plugdev\", TAG+=\"uaccess\"' >> /etc/udev/rules.d/65-edgetpu-board.rules" && \
+    udevadm control --reload-rules && udevadm trigger
+
 # setup venv and python packages
-RUN useradd -rm -p "$(openssl passwd -6 lildatamonster)" -d /home/tf -s /bin/bash -g root -G sudo -u 1000 tf
+RUN useradd -rm -p "$(openssl passwd -6 lildatamonster)" -d /home/tf -s /bin/bash -g root -G sudo,plugdev,dialout -u 1000 tf
 USER tf
 WORKDIR /home/tf
 COPY ./requirements.txt /
