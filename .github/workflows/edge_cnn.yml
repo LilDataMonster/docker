@@ -6,14 +6,14 @@ name: edge_cnn
 # documentation.
 
 on:
-  schedule:
-    - cron: '19 22 * * *'
+#   schedule:
+#     - cron: '19 22 * * *'
   push:
     branches: [ "latest" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
-  pull_request:
-    branches: [ "latest" ]
+#   pull_request:
+#     branches: [ "latest" ]
 
 env:
   # Use docker.io for Docker Hub if empty
