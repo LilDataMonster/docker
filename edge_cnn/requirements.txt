@@ -8,6 +8,7 @@ jupyterlab
 matplotlib
 mendel-development-tool
 numpy
+onnx2keras
 onnx_tf
 onnxruntime-gpu
 opencv-contrib-python-headless
@@ -23,6 +24,7 @@ skl2onnx
 statsmodels
 tensorflow
 tensorflow-gpu
+tensorflow-model-optimization
 tensorflow_probability
 tf2onnx
 tflite-runtime
