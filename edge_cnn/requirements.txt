@@ -14,7 +14,7 @@ onnxruntime-gpu
 opencv-contrib-python-headless
 pandas
 plotly
-protobuf<3.20,>=3.9.2
+protobuf<4,>=3.20.2
 pycoral
 scikit-learn<=1.1.1
 scipy
