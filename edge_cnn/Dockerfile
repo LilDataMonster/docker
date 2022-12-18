@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tensorflow:22.06-tf2-py3
+FROM nvcr.io/nvidia/tensorflow:22.11-tf2-py3
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -19,11 +19,11 @@ COPY ./requirements.txt /
 RUN python -m venv tf_env && \
     source /home/tf/tf_env/bin/activate && \
     pip install --no-cache-dir wheel setuptools && \
-    pip install --no-cache-dir -r /requirements.txt --extra-index-url https://download.pytorch.org/whl/cu116 && \
+    pip install --no-cache-dir -r /requirements.txt && \
     jupyter lab build
 
 # setup entrypoint
 COPY ./entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["jupyter", "lab", "--ip", "0.0.0.0", "--no-browser", "--NotebookApp.token='lildatamonster'"]
+CMD ["jupyter", "lab", "--ip", "0.0.0.0", "--no-browser", "--NotebookApp.token=''"]

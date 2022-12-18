@@ -1,7 +1,7 @@
 dash
-flatbuffers<2,>=1.12
+flatbuffers
 fiftyone
-h11<0.13,>=0.11
+h11
 ipywidgets<8
 jupyter-dash
 jupyterlab
@@ -14,7 +14,7 @@ onnxruntime-gpu
 opencv-contrib-python-headless
 pandas
 plotly
-protobuf==3.16.0
+protobuf
 pycoral
 scikit-learn
 scipy
