@@ -14,7 +14,7 @@ onnxruntime-gpu
 opencv-contrib-python-headless
 pandas
 plotly
-protobuf<4,>=3.20.2
+#protobuf<4,>=3.20.2
 pycoral
 scikit-learn<=1.1.1
 scipy
@@ -26,10 +26,11 @@ tensorflow
 tensorflow-gpu
 tensorflow-model-optimization
 tensorflow_probability
-tf2onnx
+#tf2onnx
 tflite-runtime
-torch
-torchaudio
-torchsummary
-torchvision
+#torch
+#torchaudio
+#torchsummary
+#torchvision
 tqdm
+umap-learn>=0.5
