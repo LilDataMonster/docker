@@ -29,9 +29,9 @@ tensorflow_probability
 #tf2onnx
 tflite-runtime
 tornado
-#torch
-#torchaudio
-#torchsummary
-#torchvision
+torch
+torchaudio
+torchsummary
+torchvision
 tqdm
 umap-learn>=0.5
