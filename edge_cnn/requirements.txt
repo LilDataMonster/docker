@@ -8,7 +8,7 @@ jupyter-tensorboard
 jupyterlab
 matplotlib
 mendel-development-tool
-numpy
+numpy<1.24,>=1.18
 #onnx2keras
 #onnx_tf
 #onnxruntime-gpu
@@ -28,6 +28,7 @@ tensorflow-model-optimization
 tensorflow_probability
 #tf2onnx
 tflite-runtime
+tornado
 #torch
 #torchaudio
 #torchsummary
