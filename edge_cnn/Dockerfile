@@ -28,5 +28,4 @@ RUN python -m venv tf_env && \
 COPY ./entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 
-ENV JUPYTERLAB_PORT 8888
-CMD ["jupyter", "lab", "--ip", "0.0.0.0", "--port", "${JUPYTERLAB_PORT}", "--no-browser", "--NotebookApp.token=''"]
+CMD ["jupyter", "lab", "--ip", "0.0.0.0", "--port", "8888", "--no-browser", "--NotebookApp.token=''"]
