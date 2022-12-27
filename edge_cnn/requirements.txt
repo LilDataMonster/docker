@@ -4,6 +4,7 @@ fiftyone
 h11
 ipywidgets<8
 jupyter-dash
+jupyter-tensorboard
 jupyterlab
 matplotlib
 mendel-development-tool
@@ -22,7 +23,6 @@ scoring
 seaborn
 #skl2onnx
 statsmodels
-tensorflow
 tensorflow-gpu
 tensorflow-model-optimization
 tensorflow_probability

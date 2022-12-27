@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tensorflow:22.08-tf2-py3
+FROM nvcr.io/nvidia/cudagl:11.4.1-runtime-ubuntu20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -12,7 +12,9 @@ RUN apt-get update -yq && apt-get install -yq build-essential python3 python3-ve
     sh -c "echo 'SUBSYSTEM==\"usb\", ATTR{idVendor}==\"0525\", MODE=\"0664\", GROUP=\"plugdev\", TAG+=\"uaccess\"' >> /etc/udev/rules.d/65-edgetpu-board.rules"
 
 # setup venv and python packages
-RUN useradd -rm -p "$(openssl passwd -6 lildatamonster)" -d /home/tf -s /bin/bash -g root -G sudo,plugdev,dialout -u 1000 tf
+RUN useradd -rm -p "$(openssl passwd -6 lildatamonster)" -d /home/tf -s /bin/bash -g root -G sudo,plugdev,dialout -u 1000 tf && \
+    ln -s /usr/bin/python3 /usr/bin/python
+SHELL ["/bin/bash", "-c"]
 USER tf
 WORKDIR /home/tf
 COPY ./requirements.txt /
@@ -26,4 +28,5 @@ RUN python -m venv tf_env && \
 COPY ./entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["jupyter", "lab", "--ip", "0.0.0.0", "--no-browser", "--NotebookApp.token=''"]
+ENV JUPYTERLAB_PORT 8888
+CMD ["jupyter", "lab", "--ip", "0.0.0.0", "--port", "${JUPYTERLAB_PORT}", "--no-browser", "--NotebookApp.token=''"]
