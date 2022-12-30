@@ -7,9 +7,12 @@ RUN apt-get update -yq && apt-get install -yq build-essential python3 python3-ve
     echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | tee /etc/apt/sources.list.d/coral-edgetpu.list && \
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
     curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
-    apt-get update -yq && apt-get install -yq edgetpu-compiler fastboot udev screen nodejs && \
+    apt-get update -yq && apt-get install -yq edgetpu-compiler fastboot udev screen nodejs \
+        libcudnn8 libnvinfer8 libnvinfer-plugin8 libnvinfer-bin && \
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    sh -c "echo 'SUBSYSTEM==\"usb\", ATTR{idVendor}==\"0525\", MODE=\"0664\", GROUP=\"plugdev\", TAG+=\"uaccess\"' >> /etc/udev/rules.d/65-edgetpu-board.rules"
+    sh -c "echo 'SUBSYSTEM==\"usb\", ATTR{idVendor}==\"0525\", MODE=\"0664\", GROUP=\"plugdev\", TAG+=\"uaccess\"' >> /etc/udev/rules.d/65-edgetpu-board.rules" && \
+    ln -s /usr/lib/x86_64-linux-gnu/libnvinfer_plugin.so.8 /usr/lib/x86_64-linux-gnu/libnvinfer_plugin.so.7 && \
+    ln -s /usr/lib/x86_64-linux-gnu/libnvinfer.so.8 /usr/lib/x86_64-linux-gnu/libnvinfer.so.7
 
 # setup venv and python packages
 RUN useradd -rm -p "$(openssl passwd -6 lildatamonster)" -d /home/tf -s /bin/bash -g root -G sudo,plugdev,dialout -u 1000 tf && \
