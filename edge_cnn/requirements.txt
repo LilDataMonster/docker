@@ -23,6 +23,7 @@ scoring
 seaborn
 #skl2onnx
 statsmodels
+tensorboard
 tensorflow-gpu
 tensorflow-model-optimization
 tensorflow_probability
