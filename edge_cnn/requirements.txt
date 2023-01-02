@@ -35,3 +35,10 @@ torchsummary
 torchvision
 tqdm
 umap-learn>=0.5
+
+# hyperparameter optimization
+ray[default]
+ray[air]
+ray[tune]
+crc32c
+tensorboardX
