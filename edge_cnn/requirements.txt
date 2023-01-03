@@ -1,7 +1,7 @@
 dash
 fiftyone
 h11
-ipywidgets>=7.6
+ipywidgets>=7.6,<8
 jax[cuda]
 jupyter-tensorboard
 jupyterlab>=3
