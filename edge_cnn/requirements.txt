@@ -1,10 +1,10 @@
 dash
 fiftyone
 h11
-ipywidgets<8
+ipywidgets>=7.6
 jax[cuda]
 jupyter-tensorboard
-jupyterlab
+jupyterlab>=3
 matplotlib
 mendel-development-tool
 numpy<1.24,>=1.18
