@@ -42,3 +42,7 @@ ray[air]
 ray[tune]
 crc32c
 tensorboardX
+
+# pycoral for edgetpu
+https://github.com/google-coral/pycoral/releases/download/v2.0.0/tflite_runtime-2.5.0.post1-cp38-cp38-linux_x86_64.whl
+https://github.com/google-coral/pycoral/releases/download/v2.0.0/pycoral-2.0.0-cp38-cp38-linux_x86_64.whl
